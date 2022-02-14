@@ -1,6 +1,6 @@
 <?php 
     require_once "include/header.php";
-    require_once "./config/db.php";
+    require_once "db.php";
 ?>
 
 <body>

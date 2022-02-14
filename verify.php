@@ -1,5 +1,5 @@
 <?php
-include "config/db.php";
+include "db.php";
 include 'include/session.php';
 
 if(isset($_POST['login'])){
