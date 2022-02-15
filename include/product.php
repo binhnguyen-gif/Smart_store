@@ -1,13 +1,19 @@
 <?php
-//$sql_slider = "SELECT * FROM tbl_slider ORDER BY image DESC LIMIT 1";
-//$query_slider = mysqli_query($connect, $sql_slider);
-//$row = mysqli_fetch_array($query_slider);
+$sql_slider = "SELECT * FROM slider ORDER BY id DESC";
+$query_slider = mysqli_query($connect, $sql_slider);
+
 
 ?>
 
 <div class="container">
-<!--    <img src="./images/--><?php //echo $row['image']; ?><!--" alt="Slider" width="100%" style="max-height: 320px;">-->
-    <img src="./images/Samsung-Galaxy-S10-Plus-Banner.jpg" alt="Slider" width="100%" style="max-height: 320px;">
+    <div class="fade">
+        <?php
+        while ($row = mysqli_fetch_array($query_slider)) { ?>
+            <div style="height: 320px;">
+                <img src="./images/<?php echo $row['image']; ?>" alt="Slider" width="100%" height="100%" style="border: none">
+            </div>
+        <?php } ?>
+    </div>
 </div>
 <div class="container product">
     <div class="row">
@@ -22,7 +28,7 @@
             <div class="product-hu">
                 <a href="#">
                     <img src="./images/products/e7de832e8da20d696a99e562a2d77921.jpg" class="product-hu__image" alt=""
-                        width="100%">
+                         width="100%">
                     <div class="product-detail">
                         <p class="product-text">Samsung Galaxy S10 White</p>
                         <div class="price-product">
@@ -38,3 +44,29 @@
         </div>
     </div>
 </div>
+<script>
+    // $('.fade').slick({
+    //     slidesToShow: 1,
+    //     slidesToScroll: 1,
+    //     dots: false,
+    //     infinite: true,
+    //     speed: 500,
+    //     fade: false,
+    //     cssEase: 'linear'
+    // });
+    $(document).ready(
+        function () {
+            $('.fade').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: false,
+                    infinite: true,
+                    speed: 500,
+                    fade: false,
+                    cssEase: 'linear'
+                }
+            );
+        }
+    )
+
+</script>

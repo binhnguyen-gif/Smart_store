@@ -462,3 +462,37 @@ position: relative;
 .signup_home > i{
     margin-right: 4px;
 }
+
+.slick-slider {
+
+}
+
+.slick-prev {
+    position: absolute;
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 45px;
+    height: 45px;
+    color: #ccc;
+    top: 50%;
+    left: 0;
+    z-index: 1000;
+}
+.slick-next {
+    position: absolute;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ccc;
+    width: 45px;
+    height: 45px;
+    top: 50%;
+    right: 0;
+    z-index: 1000;
+}
+
+.fade {
+    margin: 0 -14px;
+}
+

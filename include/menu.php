@@ -1,3 +1,4 @@
+<?php include "include/session.php";?>
 <div class="navbar">
     <div class="container">
         <ul class="nav-list">
@@ -12,7 +13,7 @@
                 echo '<li class="nav-item">
                 <a class="nav-link" href="logout.php">Đăng xuất</a>
             </li> <li class="nav-item">
-                <a class="nav-link" href="">luubinh</a>
+                <a class="nav-link" href="">'.$row['name'].'</a>
             </li>';
             }
             else {
