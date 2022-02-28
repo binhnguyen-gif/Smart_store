@@ -1,6 +1,6 @@
 <?php
 include "db.php";
-include "include/session.php";
+include "includes/session.php";
 if (isset($_POST['signup'])) {
     $username = $_POST['username'];
     $email = $_POST['email'];

@@ -1,6 +1,6 @@
 <?php
-include "include/header.php";
-include 'include/session.php';
+include "includes/header.php";
+include 'includes/session.php';
 if(isset($_SESSION['user'])){
     header('Location: index.php');
 }
@@ -14,7 +14,7 @@ if(isset($_SESSION['user'])){
         }
         ?>
         <h3>Sign in</h3>
-        <form action="verify.php" method="post" enctype="multipart/form-data">
+        <form action="verify.php" method="post" enctype="multipart/form-data" autocomplete="off">
             <div class="login-email">
                 <input type="email" name="email" id="form-login__email" placeholder="Email">
             </div>

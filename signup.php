@@ -1,6 +1,6 @@
 <?php
-include "include/header.php";
-include "include/session.php";
+include "includes/header.php";
+include "includes/session.php";
 ?>
 <div class="login-box">
     <div class="signup">

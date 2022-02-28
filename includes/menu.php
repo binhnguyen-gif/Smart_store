@@ -1,4 +1,4 @@
-<?php include "include/session.php";?>
+<?php include "includes/session.php"; ?>
 <div class="navbar">
     <div class="container">
         <ul class="nav-list">
@@ -13,10 +13,9 @@
                 echo '<li class="nav-item">
                 <a class="nav-link" href="logout.php">Đăng xuất</a>
             </li> <li class="nav-item">
-                <a class="nav-link" href="">'.$row['name'].'</a>
+                <a class="nav-link" href="">' . $row['name'] . '</a>
             </li>';
-            }
-            else {
+            } else {
                 echo '<li class="nav-item">
                 <a class="nav-link" href="login.php">Đăng nhập</a>
             </li> <li class="nav-item">
@@ -60,7 +59,8 @@
             <div class="col-3">
                 <div class="contact-row__us contact-tg">
                     <a class="cart" href="#">
-                        <span class="cart_icon"><i class="color-icon account-icon fas fa-shopping-cart"></i><p>0</p></span>
+                        <span class="cart_icon"><i
+                                    class="color-icon account-icon fas fa-shopping-cart"></i><p>0</p></span>
                         <span>Giỏ hàng</span>
                     </a>
 
@@ -73,7 +73,19 @@
     <div class="container">
         <ul class="menu-list">
             <li class="menu-item"><a href="index.php?process=trangchu" class="menu-link">Trang chủ</a></li>
-            <li class="menu-item"><a href="" class="menu-link">Sản phẩm </a></li>
+            <li class="menu-item category-list">Danh mục
+                <i class="fa-solid fa-caret-down"></i>
+                <div class="category-item">
+                    <?php
+                    $query_category = mysqli_query($connect, "select * from category");
+                    while ($row_category = mysqli_fetch_array($query_category)) {
+                        ?>
+                        <a href="category.php?category=<?php echo $row_category['id']; ?>" class="category-link"><?php echo $row_category['name']; ?></a>
+                        <?php
+                    }
+                    ?>
+                </div>
+            </li>
             <li class="menu-item"><a href="" class="menu-link">Tin tức</a></li>
             <li class="menu-item"><a href="" class="menu-link">Giới thiệu</a></li>
             <li class="menu-item"><a href="" class="menu-link">Liên hệ</a></li>
