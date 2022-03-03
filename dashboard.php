@@ -49,7 +49,7 @@ $query_product = mysqli_query($connect, $sql_product);
                             </div>
                         </a>
                         <div class="product-hut">
-                            <a class="product-hut__link" style="text-align: center"; >Thêm vào giỏ hàng</a>
+                            <a href="add_to_cart.php?link=<?php echo $row_product['link'] ?>" class="product-hut__link" style="text-align: center"; >Thêm vào giỏ hàng</a>
                         </div>
                     </div>
                 </div>

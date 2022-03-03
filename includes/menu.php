@@ -58,9 +58,23 @@
             </div>
             <div class="col-3">
                 <div class="contact-row__us contact-tg">
-                    <a class="cart" href="#">
+                    <a class="cart" href="cart_view.php">
                         <span class="cart_icon"><i
-                                    class="color-icon account-icon fas fa-shopping-cart"></i><p>0</p></span>
+                                    class="color-icon account-icon fas fa-shopping-cart"></i>
+                        <p>
+                                <?php
+                                if (!isset($_COOKIE['cart']) || $_COOKIE['cart'] == 'a:0:{}' || $_COOKIE['cart'] == '' || $_COOKIE['cart'] == 'N;') {
+                                    echo 0;
+                                } else {
+                                    $_SESSION['quantity'] = 0;
+                                    foreach (unserialize($_COOKIE['cart']) as $link => $quantity) {
+                                        $_SESSION['quantity'] += $quantity;
+                                    }
+                                    echo $_SESSION['quantity'];
+                                }
+                                ?>
+                            </p>
+                        </span>
                         <span>Giỏ hàng</span>
                     </a>
 
@@ -80,7 +94,8 @@
                     $query_category = mysqli_query($connect, "select * from category");
                     while ($row_category = mysqli_fetch_array($query_category)) {
                         ?>
-                        <a href="category.php?category=<?php echo $row_category['id']; ?>" class="category-link"><?php echo $row_category['name']; ?></a>
+                        <a href="category.php?category=<?php echo $row_category['id']; ?>"
+                           class="category-link"><?php echo $row_category['name']; ?></a>
                         <?php
                     }
                     ?>
