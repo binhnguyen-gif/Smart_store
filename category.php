@@ -4,10 +4,9 @@
 include 'includes/header.php';
 include 'includes/session.php';
 include 'includes/menu.php';
-if (isset($_GET['category'])){
+if (isset($_GET['category'])) {
     $temp = $_GET['category'];
-}
-else {
+} else {
     $temp = '';
 }
 $query_category = mysqli_query($connect, "select * from category where id = '$temp'");
@@ -38,11 +37,11 @@ while ($row_category_query = mysqli_fetch_array($query_category)) {
                                     <span class="price-normal"><?php echo $row_product['price']; ?><sup>đ</sup></span>
                                     <span class="price-promotion">20,400,000 <sup>đ</sup></span>
                                 </div>
-                                <div class="product-hut">
-                                    <div class="product-hut__link">Chi tiết</div>
-                                </div>
                             </div>
                         </a>
+                        <div class="product-hut">
+                            <a href="add_to_cart.php?link=<?php echo $row_product['link'] ?>" class="product-hut__link" style="text-align: center" ;>Thêm vào giỏ hàng</a>
+                        </div>
                     </div>
                 </div>
             <?php } ?>

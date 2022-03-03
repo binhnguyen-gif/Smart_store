@@ -6,7 +6,7 @@ if(!isset($_SESSION))
 }
 //session_destroy();
 if(isset($_SESSION['admin'])){
-    header('Location: cart_view.php');
+    header('Location: interface_admin.php');
 }
 
 if(isset($_SESSION['user'])) {
