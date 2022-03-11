@@ -1,6 +1,7 @@
 <?php
 require_once "includes/header.php";
 require_once "db.php";
+require_once "includes/session.php";
 ?>
 
 
@@ -33,7 +34,7 @@ require_once "includes/menu.php";
                             </td>
                             <td><?php echo $product['name']; ?></td>
                             <td>
-                                <img src="./admin/san-pham/photos/<?php echo $product['image']; ?>" alt="" height="100">
+                                <img src="./images/products/<?php echo $product['image']; ?>" alt="" height="100">
                             </td>
                             <td><?php echo number_format($product['price'],0,",",","); ?></td>
                             <td><?php echo $quantity; ?></td>
@@ -67,13 +68,49 @@ require_once "includes/menu.php";
                 </td>
             </tr>
         </table>
-        <div class="check-out">
+        <?php if (isset($_SESSION['user'])){
+            echo '<div class="check-out">
             <button type="submit" class="btn search submit" name="order">Mua hàng</button>
-        </div>
+        </div>';
+        }
+
+        ?>
+<!--        <div class="check-out">-->
+<!--            <button type="submit" class="btn search submit" name="order">Mua hàng</button>-->
+<!--        </div>-->
     </form>
 </div>
+<form action="order_view.php" method="post">
+    <div class="container">
+        <div class="information_user" style="margin-top: 45px;">
+            <div class="information_user-title" style="background: #0f9ed8">
+                <h3 style="padding: 12px; text-align: center">Thông tin người mua</h3>
+            </div>
+            <div class="form_dk">
+                <label>Tên của bạn</label>
+                <input type="text" name="name" id="">
+                <br>
+                <label for="">Số điện thoại của bạn</label>
+                <input type="text" name="sdt" value="">
+                <br>
+                <label for="">Email của bạn</label>
+                <input type="email" name="email" id="">
+                <br>
+                <label for="">Địa chỉ</label>
+                <textarea name="address" id="" cols="30" rows="10"></textarea>
+                <br>
+                <?php if (!isset($_SESSION['user'])){
+            echo '<input type="submit" class="btn search submit" name="muahang" value="Mua hàng">';
+        }?>
 
-<?
+            </div>
+        </div>
+
+    </div>
+
+</form>
+
+<?php
 require_once "includes/footer.php";
 ?>
 </body>

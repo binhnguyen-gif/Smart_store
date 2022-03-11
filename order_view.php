@@ -1,6 +1,7 @@
 <?php
 require_once "includes/header.php";
 require_once "db.php";
+require_once "includes/session.php";
 ?>
 
 <body>
@@ -52,12 +53,39 @@ require_once "includes/menu.php";
                 <td colspan="8"> Thành tiền: <?php echo number_format($total_price, 0 ,",",",") ?></td>
             </tr>
         </table>
-        <div class="check-out">
+        <?php
+        if (isset($_SESSION['user'])){
+            $name_customer = $row['name'];
+            $sdt_customer = '0363631790';
+            $email_customer = 'binhnguyen@gmail.com';
+            $address_customer = '72 Trần Đại Nghĩa , Đồng Tâm, Hai Bà Trưng , Hà Nội';
+        }
+        elseif (isset($_POST['muahang'])){
+            $name_customer = $_POST['name'];
+            $sdt_customer = $_POST['sdt'];
+            $email_customer = $_POST['email'];
+            $address_customer = $_POST['address'];
+        }
+
+
+        ?>
+        <div class="information_customer">
+            <h3>Thông tin người mua</h3>
+            <p>Họ tên: <?php echo $name_customer; ?></p>
+            <p>Số điện thoại : <?php echo $sdt_customer; ?></p>
+            <p>Địa chỉ : <?php echo $address_customer; ?></p>
+            <label for="">Hình thức thanh toán :</label>
+            <select name="hinhthuc" id="hinhthuc">
+                <option value="0">Thẻ ngân hàng</option>
+                <option value="1" selected>Tiền mặt</option>
+            </select>
+        </div>
+        <div class="check-out" style="margin-top: 45px;">
             <button type="submit" class="btn search submit" name="order">Đặt hàng</button>
         </div>
     </form>
 </div>
-<?
+<?php
 require_once "includes/footer.php";
 ?>
 </body>
