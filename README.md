@@ -1,8 +1,5 @@
-# 49
+# smart_store
 Website bán hàng laptop, điện thoại, linh kiện:
-Các chức năng đề ra :
-Website bán hàng laptop, điện thoại, linh kiện:
-
 Chức năng:
 -	Đăng ký, đăng nhập để trở thành thành viên
 -	Hiển thị và bán mọi loại sản phẩm, khuyến mãi, bán chạy….
